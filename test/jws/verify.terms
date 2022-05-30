@@ -1,0 +1,298 @@
+%% -*- mode: erlang -*-
+%% Copyright (c) 2022 Peter Morgan <peter.james.morgan@gmail.com>
+%%
+%% Licensed under the Apache License, Version 2.0 (the "License");
+%% you may not use this file except in compliance with the License.
+%% You may obtain a copy of the License at
+%%
+%% http://www.apache.org/licenses/LICENSE-2.0
+%%
+%% Unless required by applicable law or agreed to in writing, software
+%% distributed under the License is distributed on an "AS IS" BASIS,
+%% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%% See the License for the specific language governing permissions and
+%% limitations under the License.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9"
+            "."
+            "eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFt"
+            "cGxlLmNvbS9pc19yb290Ijp0cnVlfQ"
+            "."
+            "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk">>,
+   key => jose_jwk:use(
+            jose_jsx:read_file("test/jws/a.1.json"))}}.
+
+{true,
+ #{jws => <<"eyJhbGciOiJSUzI1NiJ9"
+            "."
+            "eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFt"
+            "cGxlLmNvbS9pc19yb290Ijp0cnVlfQ"
+            "."
+            "cC4hiUPoj9Eetdgtv3hF80EGrhuB__dzERat0XF9g2VtQgr9PJbu3XOiZj5RZmh7"
+            "AAuHIm4Bh-0Qc_lF5YKt_O8W2Fp5jujGbds9uJdbF9CUAr7t1dnZcAcQjbKBYNX4"
+            "BAynRFdiuB--f_nZLgrnbyTyWzO75vRK5h6xBArLIARNPvkSjtQBMHlb1L07Qe7K"
+            "0GarZRmB_eSN9383LcOLn6_dO--xi12jzDwusC-eOkHWEsqtFZESc6BfI7noOPqv"
+            "hJ1phCnvWh6IeYI2w9QOYEUipUTI8np6LbgGY9Fs98rqVt5AXLIhWkWywlVmtVrB"
+            "p0igcN_IoypGlUPQGe77Rw">>,
+   key => jose_jwk:use(
+            jose_jsx:read_file("test/jws/a.2.json"))}}.
+
+{true,
+ #{jws => <<"eyJhbGciOiJFUzI1NiJ9"
+            "."
+            "eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFt"
+            "cGxlLmNvbS9pc19yb290Ijp0cnVlfQ"
+            "."
+            "DtEhU3ljbEg8L38VWAfUAqOyKAM6-Xx-F4GawxaepmXFCgfTjDxw5djxLa8ISlSA"
+            "pmWQxfKTUJqPP3-Kg6NU1Q">>,
+   key => jose_jwk:use(
+            jose_jsx:read_file("test/jws/a.3.json"))}}.
+
+{true,
+ #{jws => <<"eyJhbGciOiJFUzUxMiJ9"
+            "."
+            "UGF5bG9hZA"
+            "."
+            "AdwMgeerwtHoh-l192l60hp9wAHZFVJbLfD_UxMi70cwnZOYaRI1bKPWROc-mZZq"
+            "wqT2SI-KGDKB34XO0aw_7XdtAG8GaSwFKdCAPZgoXD2YBJZCPEX3xKpRwcdOO8Kp"
+            "EHwJjyqOgzDO7iKvU8vcnwNrmxYbSW9ERBXukOXolLzeO_Jn">>,
+   key => jose_jwk:use(
+            jose_jsx:read_file("test/jws/a.4.json"))}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "NHVaYe26MbtOYhSKkoKYdFVomg4i8ZJd8_-RU8VNbftc4TSMb4bXP3l3YlNWACwyX"
+            "PGffz5aXHc6lty1Y2t4SWRqGteragsVdZufDn5BlnJl9pdR_kdVFUsra2rWKEofkZ"
+            "eIC4yWytE58sMIihvo9H1ScmmVwBcQP6XETqYd0aSHp1gOa9RdUPDvoXQ5oqygTqV"
+            "txaDr6wUFKrKItgBMzWIdNZ6y7O9E0DhEPTbE9rfBo6KTFsHAZnMg4k68CDp2woYI"
+            "aXbmYTWcvbzIuHO7_37GT79XdIwkm95QJ7hYC9RiwrV7mesbY4PAahERJawntho0m"
+            "y942XheVLmGwLMBkQ">>,
+   key => jose_pem:read_file("test/jws/jwt.io.rs256.001.key")}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJSUzM4NCIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "o1hC1xYbJolSyh0-bOY230w22zEQSk5TiBfc-O"
+            "CvtpI2JtYlW-23-8B48NpATozzMHn0j3rE0xVUldxShzy0xeJ7vYAccVXu2Gs9rnT"
+            "Vqouc-UZu_wJHkZiKBL67j8_61L6SXswzPAQu4kVDwAefGf5hyYBUM-80vYZwWPEp"
+            "LI8K4yCBsF6I9N1yQaZAJmkMp_Iw371Menae4Mp4JusvBJS-s6LrmG2QbiZaFaxVJ"
+            "iW8KlUkWyUCns8-qFl5OMeYlgGFsyvvSHvXCzQrsEXqyCdS4tQJd73ayYA4SPtCb9"
+            "clz76N1zE5WsV4Z0BYrxeb77oA7jJhh994RAPzCG0hmQ">>,
+   key => jose_pem:read_file("test/jws/jwt.io.rs384.001.key")}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "jYW04zLDHfR1v7xdrW3lCGZrMIsVe0vWCfVkN2"
+            "DRns2c3MN-mcp_-RE6TN9umSBYoNV-mnb31wFf8iun3fB6aDS6m_OXAiURVEKrPFN"
+            "GlR38JSHUtsFzqTOj-wFrJZN4RwvZnNGSMvK3wzzUriZqmiNLsG8lktlEn6KA4kYV"
+            "aM61_NpmPHWAjGExWv7cjHYupcjMSmR8uMTwN5UuAwgW6FRstCJEfoxwb0WKiyoaS"
+            "lDuIiHZJ0cyGhhEmmAPiCwtPAwGeaL1yZMcp0p82cpTQ5Qb-7CtRov3N4DcOHgWYk"
+            "6LomPR5j5cCkePAz87duqyzSMpCB0mCOuE3CU2VMtGeQ">>,
+   key => jose_pem:read_file("test/jws/jwt.io.rs512.001.key")}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "tyh-VfuzIxCyGYDlkBA7DfyjrqmSHu6pQ2hoZuFqUSLPNY2N0mpHb3nk5K17HWP_3"
+            "cYHBw7AhHale5wky6-sVA">>,
+   key => jose_pem:read_file("test/jws/jwt.io.es256.001.key")}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "VUPWQZuClnkFbaEKCsPy7CZVMh5wxbCSpaAWFLpnTe9J0--PzHNeTFNXCrVHysAa3"
+            "eFbuzD8_bLSsgTKC8SzHxRVSj5eN86vBPo_1fNfE7SHTYhWowjY4E_wuiC13yoj">>,
+   key => jose_pem:read_file("test/jws/jwt.io.es384.001.key")}}.
+
+
+{true,
+ #{jws => <<"eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "iOeNU4dAFFeBwNj6qdhdvm-IvDQrTa6R22lQVJVuWJxorJfeQww5Nwsra0PjaOYhA"
+            "Mj9jNMO5YLmud8U7iQ5gJK2zYyepeSuXhfSi8yjFZfRiSkelqSkU19I-Ja8aQBDbq"
+            "Xf2SAWA8mHF8VS3F08rgEaLCyv98fLLH4vSvsJGf6ueZSLKDVXz24rZRXGWtYYk_O"
+            "YYTVgR1cg0BLCsuCvqZvHleImJKiWmtS0-CymMO4MMjCy_FIl6I56NqLE9C87tUVp"
+            "o1mT-kbg5cHDD8I7MjCW5Iii5dethB4Vid3mZ6emKjVYgXrtkOQ-JyGMh6fnQxEFN"
+            "1ft33GX2eRHluK9eg">>,
+   key => jose_pem:read_file("test/jws/jwt.io.ps256.001.key")}}.
+
+{true,
+ #{jws => <<"eyJhbGciOiJQUzM4NCIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "Lfe_aCQme_gQpUk9-6l9qesu0QYZtfdzfy08w8uqqPH_gnw-IVyQwyGLBHPFBJHMb"
+            "ifdSMxPjJjkCD0laIclhnBhowILu6k66_5Y2z78GHg8YjKocAvB-wSUiBhuV6hXVx"
+            "E5emSjhfVz2OwiCk2bfk2hziRpkdMvfcITkCx9dmxHU6qcEIsTTHuH020UcGayB1-"
+            "IoimnjTdCsV1y4CMr_ECDjBrqMdnontkqKRIM1dtmgYFsJM6xm7ewi_ksG_qZHhao"
+            "BkxQ9wq9OVQRGiSZYowCp73d2BF3jYMhdmv2JiaUz5jRvv6lVU7Quq6ylVAlSPxeo"
+            "v9voYHO1mgZFCY1kQ">>,
+   key => jose_pem:read_file("test/jws/jwt.io.ps384.001.key")}}.
+
+{true,
+ #{jws => <<"eyJhbGciOiJQUzUxMiIsInR5cCI6IkpXVCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTUxNjIzOTAyMn0"
+            "."
+            "J5W09-rNx0pt5_HBiydR-vOluS6oD-RpYNa8PVWwMcBDQSXiw6-EPW8iSsalXPspG"
+            "j3ouQjAnOP_4-zrlUUlvUIt2T79XyNeiKuooyIFvka3Y5NnGiOUBHWvWcWp4RcQFM"
+            "BrZkHtJM23sB5D7Wxjx0-HFeNk-Y3UJgeJVhg5NaWXypLkC4y0ADrUBfGAxhvGdRd"
+            "ULZivfvzuVtv6AzW6NRuEE6DM9xpoWX_4here-yvLS2YPiBTZ8xbB3axdM99LhES-"
+            "n52lVkiX5AWg2JJkEROZzLMpaacA_xlbUz_zbIaOaoqk8gB5oO7kI6sZej3QAdGig"
+            "Qy-hXiRnW_L98d4GQ">>,
+   key => jose_pem:read_file("test/jws/jwt.io.ps512.001.key")}}.
+
+
+%% hs256 example from token.dev
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "KnP0r2uWip4CUgYYh4cZcVxVDWoxsewcmA1x_TcFS-8">>,
+   key => #{kty => oct,
+            k => jose_base64url:decode(
+                   <<"NTNv7j0TuYARvmNMmWXo6fKvM4o6nv/aUi9ryX38ZH+L1bkrnD1ObOQ8"
+                     "JAUmHCBq7Iy7otZcyAagBLHVKvvYaIpmMuxmARQ97jUVG16Jkpkp1wXO"
+                     "PsrF9zwew6TpczyHkHgX5EuLg2MeBuiT/qJACs1J0apruOOJCg/gOtkj"
+                     "B4c=">>)}}}.
+
+%% hs384 example from token.dev
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "EVT1LGle8-EYK5iG7kn7BWhrd-V9s-"
+            "dZ64hmMhhYN52ir80Wkr5PjJoJ3WE0pmUf">>,
+   key => #{kty => oct,
+            k => jose_base64url:decode(
+                   <<"NTNv7j0TuYARvmNMmWXo6fKvM4o6nv/aUi9ryX38ZH+L1bkrnD1ObOQ8"
+                     "JAUmHCBq7Iy7otZcyAagBLHVKvvYaIpmMuxmARQ97jUVG16Jkpkp1wXO"
+                     "PsrF9zwew6TpczyHkHgX5EuLg2MeBuiT/qJACs1J0apruOOJCg/gOtkj"
+                     "B4c=">>)}}}.
+
+%% hs512 example from token.dev
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "OzvmLnbF2Q0VKsy1_dEntIHrmkPkFqISUxk92iOpXnVS3DKtif4edo0GvJ_d_oc2W"
+            "onS0kO9N0dG1N9Ysje5tg">>,
+   key => #{kty => oct,
+            k => jose_base64url:decode(
+                   <<"NTNv7j0TuYARvmNMmWXo6fKvM4o6nv/aUi9ryX38ZH+L1bkrnD1ObOQ8"
+                     "JAUmHCBq7Iy7otZcyAagBLHVKvvYaIpmMuxmARQ97jUVG16Jkpkp1wXO"
+                     "PsrF9zwew6TpczyHkHgX5EuLg2MeBuiT/qJACs1J0apruOOJCg/gOtkj"
+                     "B4c=">>)}}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "kAGWEUMyd4NXjyIWmUnihQ4l2D-YPIW_97VxArl0X2sKZCRNkHy6QW0eg5ZUxQhQU"
+            "iLJdr_j5eXyVfxWwS_Z9cswWhhvlldrA40VGjCU3QhDSGyAEIS3-GeTnA8gf4SFNU"
+            "9haB759YDRfZuWWPNplJHtyugO56mNJ1IbGi4v2R83ncBggm5E5-tAMed1nQ9YXl2"
+            "fajaU0ehYlK_AujjFLgDxH5gGgsTjhsbUShU0M86z75h-1xXr6lCFaQ1vuWjJxEpn"
+            "Kh4UA_hXuW8NslT2CW8k2jzPf0y01JhsH40wp5q1FYeDNhaX1Al45DCL5E3RIE31G"
+            "0u8Pd6We_M9Q53vnw">>,
+   key => jose_pem:read_file("test/jws/token.dev.rs256.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzM4NCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "1eTexsZ4DjLUkBC5UQAvH6cUaPymPavIbgU0nBstN0QhBMU_1JJtCq9UHKg7GdP2M"
+            "UiPwK5IffoMr8QLEn0R3I_BJyTR6ppK8oSTtAgExlq42sbzkAD1cUPyioU6pZkkcm"
+            "B3JhTU2co1FXzJAt0crQQ3JfYu1bsuAeFPJj2idXnEsYWHndb1EST2YkiJWxI3glk"
+            "awUMqZ4wTPG73muJOCOhY84YBaXgn0uY_2rMIhnyCYhNzUczSP6CqP79qCrkysv-I"
+            "3PxPZMNiF-QqvI-m_O_0pPXNl1tmkXfJ6nlTWg-PnTNJTDZhzzVLsRO7kuo8-ImLw"
+            "g_45NVUEpHhjku3sg">>,
+   key => jose_pem:read_file("test/jws/token.dev.rs384.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzUxMiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "s07RUtMa8DisU-nXieLSAUsCXPdT8Ww9_gfVJyIaa-l1RI6d6AVILyhGIH9cB-co3"
+            "PPcXfb2GzyudKVRyYSCn1nJ59IS6sg3rq5O3rqLjlBoFdeGvXDpYLn-E1yLcEyujf"
+            "yRcqlW6E3JncLcuWO4kYlttx0PCMpS3hZKUi9BoHDUvYkHBDKS9Le9bPAhYMppmLT"
+            "9oiP79OId2opFzyGa1LkhdlR90va_OMkccN1bHj7VqzjnPCQ86nslWU9GhOP2JXiN"
+            "dp4VvabjNOuqyLxtmVVTvtkl4n4rkIHOfUlOWg1PTXs4pbifjQ2DeJ2h7z0bIuaRx"
+            "iSCemyOMnlJR0yfqw">>,
+   key => jose_pem:read_file("test/jws/token.dev.rs512.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "q5i8svVO-EYcB-3RpMkSI2XPCfQnV2UIEdmY7Qt-9-GtIMiiLaPrwS8sq04Xp7c3d"
+            "pJoOt-aYxaN7Tgp8qzZeg">>,
+   key => jose_pem:read_file("test/jws/token.dev.es256.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "cCHU3AoBMvUy4jGrHIcnb2q6pwrom7JuBtd-W4ldydPVfqObA6Ok1MYvFlQpZRmYq"
+            "jaVHzSXe63tmlxwzgg5DUPph2XbaKoAhOI8OqxIB2B5hJ5jl1UYTmSmtUeZQ2Ai">>,
+   key => jose_pem:read_file("test/jws/token.dev.es384.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ"
+            "."
+            "AK55mHCa6tMYQ5PDtc8iamxkuk10Wbr-YYwvs8lpkmVrX8QeFVssZz-lwKaT-qa-p"
+            "XQZ449sqk8h1-Yc4kthH_CKAL3q4wFGaaWSObZSeHnkkrzt19qGaWMD_fR0ebk2XD"
+            "lbn6SlJ5pyWdkr29strjFfC1b9rJjhBBMLyas8wyBi-Jf6">>,
+   key => jose_pem:read_file("test/jws/token.dev.es512.001.key")}}.
+
+{true,
+ #{jws => <<"eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0"
+            "."
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRyd"
+            "WUsImlhdCI6MTY1Mzc0Mzk5MSwiZXhwIjoxNjUzNzQ3NTkxfQ">>}}.

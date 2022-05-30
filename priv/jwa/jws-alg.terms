@@ -1,0 +1,119 @@
+%% -*- mode: erlang -*-
+%% Copyright (c) 2022 Peter Morgan <peter.james.morgan@gmail.com>
+%%
+%% Licensed under the Apache License, Version 2.0 (the "License");
+%% you may not use this file except in compliance with the License.
+%% You may obtain a copy of the License at
+%%
+%% http://www.apache.org/licenses/LICENSE-2.0
+%%
+%% Unless required by applicable law or agreed to in writing, software
+%% distributed under the License is distributed on an "AS IS" BASIS,
+%% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%% See the License for the specific language governing permissions and
+%% limitations under the License.
+
+
+%% secure: HMAC
+#{name => "HS256",
+  description => "HMAC using SHA-256",
+  algorithm => #{sign => fun crypto:mac/4, a => [hmac, sha256]},
+  implementation => "Required"}.
+
+#{name => "HS384",
+  description => "HMAC using SHA-384",
+  algorithm => #{sign => fun crypto:mac/4, a => [hmac, sha384]},
+  implementation => "Optional"}.
+
+#{name => "HS512",
+  description => "HMAC using SHA-512",
+  algorithm => #{sign => fun crypto:mac/4, a => [hmac, sha512]},
+  implementation => "Optional"}.
+
+
+%% secure: RSA
+#{name => "RS256",
+  description => "RSASSA-PKCS1-v1_5 using SHA-256",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [rsa, sha256]},
+  implementation => "Recommended"}.
+
+#{name => "RS384",
+  description => "RSASSA-PKCS1-v1_5 using SHA-384",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [rsa, sha384]},
+  implementation => "Optional"}.
+
+#{name => "RS512",
+  description => "RSASSA-PKCS1-v1_5 using SHA-512",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [rsa, sha512]},
+  implementation => "Optional"}.
+
+
+%% secure: EC
+#{name => "ES256",
+  description => "ECDSA using P-256 and SHA-256",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [ecdsa, sha256]},
+  implementation => "Recommended+"}.
+
+#{name => "ES384",
+  description => "ECDSA using P-384 and SHA-384",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [ecdsa, sha384]},
+  implementation => "Optional"}.
+
+#{name => "ES512",
+  description => "ECDSA using P-521 and SHA-512",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [],
+                 a => [ecdsa, sha512]},
+  implementation => "Optional"}.
+
+
+%% secure: PS
+#{name => "PS256",
+  description => "RSASSA-PSS using SHA-256 and MGF1 with SHA-256",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [{rsa_padding, rsa_pkcs1_pss_padding},
+                             {rsa_mgf1_md, sha256}],
+                 a => [rsa, sha256]},
+  implementation => "Optional"}.
+
+#{name => "PS384",
+  description => "RSASSA-PSS using SHA-384 and MGF1 with SHA-384",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [{rsa_padding, rsa_pkcs1_pss_padding},
+                             {rsa_mgf1_md, sha384}],
+                 a => [rsa, sha384]},
+  implementation => "Optional"}.
+
+#{name => "PS512",
+  description => "RSASSA-PSS using SHA-512 and MGF1 with SHA-512",
+  algorithm => #{sign => fun crypto:sign/5,
+                 verify => fun crypto:verify/6,
+                 options => [{rsa_padding, rsa_pkcs1_pss_padding},
+                             {rsa_mgf1_md, sha512}],
+                 a => [rsa, sha512]},
+  implementation => "Optional"}.
+
+
+%% insecure: none
+#{name => "none",
+  description => "No digital signature or MAC performed",
+  algorithm => #{sign => fun jose_alg:none/1, a => []},
+  implementation => "Optional"}.
