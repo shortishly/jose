@@ -18,12 +18,16 @@ PROJECT_DESCRIPTION = Javascript Object Signing and Encryption (JOSE)
 
 DEPS = \
 	cowlib \
-	jsx
+	jsx \
+	phrase
 
 SHELL_DEPS = \
 	sync
 
+dep_phrase = git https://github.com/shortishly/phrase.git
+
 dep_cowlib_commit = 2.11.0
+dep_phrase_commit = main
 
 
 SHELL_OPTS = \

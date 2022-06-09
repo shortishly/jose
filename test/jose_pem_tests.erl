@@ -22,7 +22,7 @@
 read_file_test_() ->
      lists:map(
        t(fun jose_pem:read_file/1),
-       jose_exprs:consult("test/pem/read_file.terms")).
+       phrase_file:consult("test/pem/read_file.terms")).
 
 
 t(F) ->

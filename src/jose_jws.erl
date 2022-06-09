@@ -41,7 +41,7 @@ init([]) ->
              ?MODULE,
              lists:map(
                prefix(alg),
-               jose_exprs:consult("priv/jwa/jws-alg.terms"))),
+               phrase_file:consult("priv/jwa/jws-alg.terms"))),
     {ok, ready, #{}}.
 
 

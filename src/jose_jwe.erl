@@ -36,11 +36,11 @@ init([]) ->
              lists:append(
                lists:map(
                  prefix(alg),
-                 jose_exprs:consult("priv/jwa/jwe-alg.terms")),
+                 phrase_file:consult("priv/jwa/jwe-alg.terms")),
 
                lists:map(
                  prefix(enc),
-                 jose_exprs:consult("priv/jwa/jwe-enc.terms")))),
+                 phrase_file:consult("priv/jwa/jwe-enc.terms")))),
 
     {ok, ready, #{}}.
 

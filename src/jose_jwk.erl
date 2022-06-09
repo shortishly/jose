@@ -45,7 +45,7 @@ init([]) ->
             (#{name := Name} = Definition) ->
                 {{kty, Name}, maps:without([name], Definition)}
         end,
-        jose_exprs:consult("priv/jwa/jwk-kty.terms"))),
+        phrase_file:consult("priv/jwa/jwk-kty.terms"))),
     {ok, ready, #{}}.
 
 

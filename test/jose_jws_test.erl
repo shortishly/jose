@@ -46,7 +46,7 @@ verify_test_() ->
      cleanup(),
      lists:map(
        t(fun jose_jws:verify/1),
-       jose_exprs:consult("test/jws/verify.terms"))}.
+       phrase_file:consult("test/jws/verify.terms"))}.
 
 
 issue_verify_test_() ->
