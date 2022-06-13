@@ -15,7 +15,8 @@ init([]) ->
 children() ->
     [worker(jose_jwe),
      worker(jose_jwk),
-     worker(jose_jws)].
+     worker(jose_jws),
+     worker(jose_jwt)].
 
 
 worker(M) ->

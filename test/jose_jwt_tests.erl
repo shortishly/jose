@@ -19,6 +19,34 @@
 -include_lib("eunit/include/eunit.hrl").
 
 
+issue_verify_test_() ->
+    Private = jose_pem:read_file("test/jws/jwt.io.es256.001.key"),
+    Public =  jose_pem:read_file("test/jws/jwt.io.es256.001.pub"),
+
+
+    Header = #{alg => <<"ES256">>,
+               kid => <<"ABC123DEFG">>},
+
+    Payload = #{iss => <<"DEF123GHIJ">>,
+                iat => os:system_time(second),
+                exp => os:system_time(second) + (60 * 60),
+                aud => <<"https://id.example.com">>,
+                sub =>  <<"com.example.app">>},
+
+    {foreach,
+     setup(),
+     cleanup(),
+     [?_assertEqual(
+         true,
+         begin
+             Token = jose_jwt:issue(#{header => jsx:encode(Header),
+                                      payload => jsx:encode(Payload),
+                                      key => Private}),
+
+             jose_jwt:verify(#{jwt => Token, key => Public})
+         end)]}.
+
+
 issue_test_() ->
     Payload = <<"{\"iss\":\"joe\",\r\n"
                 " \"exp\":1300819380,\r\n"
@@ -41,8 +69,7 @@ issue_test_() ->
                        " \"alg\":\"HS256\"}">>,
            payload => Payload,
            key => jose_jwk:use(
-                    jsx:decode(
-                      read_file("test/jwk/example-002.json")))}},
+                    jose_jsx:read_file("test/jwk/example-002.json"))}},
 
 
         {<<"eyJhbGciOiJub25lIn0"
@@ -53,11 +80,6 @@ issue_test_() ->
 
          #{header => <<"{\"alg\":\"none\"}">>,
            payload => Payload}}])}.
-
-
-read_file(Filename) ->
-    {ok, B} = file:read_file(Filename),
-    B.
 
 
 setup() ->

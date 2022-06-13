@@ -17,15 +17,19 @@ PROJECT = jose
 PROJECT_DESCRIPTION = Javascript Object Signing and Encryption (JOSE)
 
 DEPS = \
+	beaming \
 	cowlib \
 	jsx \
-	phrase
+	phrase \
+	recon
 
 SHELL_DEPS = \
 	sync
 
+dep_beaming = git https://github.com/shortishly/beaming.git
 dep_phrase = git https://github.com/shortishly/phrase.git
 
+dep_beaming_commit = main
 dep_cowlib_commit = 2.11.0
 dep_phrase_commit = main
 

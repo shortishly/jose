@@ -13,7 +13,7 @@
 %% limitations under the License.
 
 
--module(jose_jws_test).
+-module(jose_jws_tests).
 
 
 -include_lib("eunit/include/eunit.hrl").
