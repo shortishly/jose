@@ -16,8 +16,19 @@
 -module(jose).
 
 
+-export([priv_dir/0]).
 -export([start/0]).
 
 
 start() ->
     application:ensure_all_started(?MODULE).
+
+
+priv_dir() ->
+    case code:priv_dir(?MODULE) of
+        {error, bad_name} ->
+            error(badarg, [?MODULE]);
+
+        Filename ->
+            Filename
+    end.

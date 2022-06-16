@@ -115,7 +115,8 @@ callback_mode() ->
 
 init([]) ->
     ?MODULE = ets:new(?MODULE, [named_table]),
-    {ok, CSV} = file:read_file("priv/jwt/claims.csv"),
+    {ok, CSV} = file:read_file(
+                  filename:join(jose:priv_dir(), "jwt/claims.csv")),
 
     [_Header | T] = binary:split(CSV, <<"\r\n">>, [global, trim_all]),
 
